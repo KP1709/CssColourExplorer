@@ -1,4 +1,6 @@
 # CSS Colour Explorer
+[![Netlify Status](https://api.netlify.com/api/v1/badges/44a72302-dc3c-4fd2-81aa-f70087a65074/deploy-status)](https://app.netlify.com/sites/kareenapatel-csscolourexplorer/deploys)
+
 
 ## ⌨️ Tech stack
 React / CSS / Typescript / Vite / React (Tanstack) Query / Axios / React Router
