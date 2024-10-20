@@ -1,4 +1,3 @@
-import React from "react";
 import { getSpecificColourInfo } from "../apiCalls";
 import { getAdditionalSpecificColourInfo } from "../apiCalls";
 import { useQuery } from "@tanstack/react-query";

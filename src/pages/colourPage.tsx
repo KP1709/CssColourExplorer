@@ -1,4 +1,3 @@
-import React from "react";
 import ColourInfo from "../components/colourInfo";
 import Header from "../components/header";
 import { Link, useParams } from "react-router-dom";

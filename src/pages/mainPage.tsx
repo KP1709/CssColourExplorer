@@ -1,4 +1,3 @@
-import React from "react";
 import ColourExplorer from "../components/colourExplorer";
 import Header from "../components/header";
 
