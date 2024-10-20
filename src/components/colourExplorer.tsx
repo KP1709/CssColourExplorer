@@ -11,7 +11,7 @@ export default function colourExplorer() {
     return (
         <main>
             <label htmlFor="colourName">Colour name:</label>
-            <input type="text"
+            <input type="search"
                 id="colourName"
                 name="colourName"
                 value={enteredColour}
