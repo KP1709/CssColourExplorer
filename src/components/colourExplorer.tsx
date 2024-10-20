@@ -17,6 +17,7 @@ export default function colourExplorer() {
                 value={enteredColour}
                 onChange={(e) => setEnteredColor(e.target.value.toLowerCase())}
                 placeholder="apricot"
+                aria-label="Search through all CSS colours"
             />
             <Suspense fallback={<Loading loadingPhrase="Loading CSS colours" />}>
                 <ColourList enteredColour={deferredEnteredColour} isLoading={isLoading} />
