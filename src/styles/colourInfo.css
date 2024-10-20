@@ -1,0 +1,124 @@
+main#colour-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    max-width: 900px;
+
+
+    @media(min-width: 400px) {
+        display: grid;
+        grid-template-columns: repeat (2, auto);
+        grid-template-rows: repeat (5, auto);
+        justify-items: center;
+    }
+
+    @media(min-width: 600px) {
+        display: grid;
+        grid-template-columns: repeat (3, auto);
+        grid-template-rows: repeat (4, auto);
+    }
+}
+
+h2 {
+    @media(min-width: 400px) {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+    }
+
+    @media(min-width: 600px) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+}
+
+svg {
+    width: 40%;
+
+    @media(min-width: 400px) {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+    }
+
+    @media(min-width: 600px) {
+        width: 50%;
+        grid-column: 2;
+        grid-row: 2
+    }
+}
+
+#css__colour-hex {
+    @media(min-width: 400px) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    @media(min-width: 600px) {
+        grid-column: 1;
+        grid-row: 3;
+    }
+}
+
+#css__colour-rgb {
+    @media(min-width: 400px) {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    @media(min-width: 600px) {
+        grid-column: 2;
+        grid-row: 3;
+    }
+}
+
+#css__colour-hsv {
+    @media(min-width: 400px) {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    @media(min-width: 600px) {
+        grid-column: 3;
+        grid-row: 3;
+    }
+
+}
+
+#css__colour-hsl {
+    @media(min-width: 400px) {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    @media(min-width: 600px) {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+}
+
+#css__colour-xyz {
+    @media(min-width: 400px) {
+        grid-column: 1;
+        grid-row: 5;
+    }
+
+    @media(min-width: 600px) {
+        grid-column: 2;
+        grid-row: 4;
+    }
+}
+
+#css__colour-cmyk {
+    @media(min-width: 400px) {
+        grid-column: 2;
+        grid-row: 5;
+    }
+
+    @media(min-width: 600px) {
+        grid-column: 3;
+        grid-row: 4;
+    }
+}
+
+/* #css-colour-contrast{} */
