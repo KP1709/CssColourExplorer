@@ -3,7 +3,7 @@ import "../styles/colourExplorer.css"
 const ColourList = lazy(() => import("./colourList"))
 import Loading from "./loadingFallback";
 
-export default function colourExplorer() {
+export default function ColourExplorer() {
     const [enteredColour, setEnteredColor] = useState<string>("")
     const deferredEnteredColour = useDeferredValue(enteredColour)
     const isLoading = enteredColour !== deferredEnteredColour

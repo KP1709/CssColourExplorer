@@ -32,7 +32,7 @@ export default function ColourInfo({colourName}:ColourInfoType) {
     
     return (
         <>
-            <main id="colour-info">
+            <main id="colour-info" data-test="colour-info-page">
                     <>
                     <h2>{startCase(colourName)}</h2>
                         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
