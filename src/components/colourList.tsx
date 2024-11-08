@@ -21,7 +21,7 @@ function ColourList({ enteredColour, isLoading }: ColourList) {
     
     return (
         <>
-            <ul style={{ opacity: isLoading ? 0.5 : 1 }}>
+            <ul style={{ opacity: isLoading ? 0.5 : 1 }} data-test="colour-list-results">
                 {queriedColours.map(colours =>
                     <Link className="list-item-link" to={colours.name} key={uuid()}>
                         <li>

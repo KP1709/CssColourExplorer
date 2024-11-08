@@ -9,7 +9,7 @@ export default function ColourExplorer() {
     const isLoading = enteredColour !== deferredEnteredColour
 
     return (
-        <main>
+        <main data-test="colour-explorer-page">
             <label htmlFor="colourName">Colour name:</label>
             <input type="search"
                 id="colourName"
