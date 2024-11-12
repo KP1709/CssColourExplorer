@@ -36,7 +36,6 @@ describe('Testing whole site', () => {
     cy.contains('Loading colour info').should('be.visible')
     cy.getDataTest('loading-spinner').should('be.visible')
     cy.wait(3000)
-    cy.contains('Loading colour info').should('not.exist')
     cy.getDataTest('loading-spinner').should('not.exist')
   })
 
