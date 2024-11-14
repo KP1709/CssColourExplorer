@@ -4,6 +4,8 @@ import startCase from "lodash.startcase"
 import { getCssColours } from "../apiCalls";
 import "../styles/colourList.css"
 import ColourListItem from "./colourListItem";
+import { Link } from "react-router-dom";
+import { v4 as uuid } from "uuid"
 
 type ColourList = { enteredColour: string, isLoading: boolean }
 function ColourList({ enteredColour, isLoading }: ColourList) {
@@ -18,11 +20,16 @@ function ColourList({ enteredColour, isLoading }: ColourList) {
     const queriedColours = cssColours.filter(colour => startCase(colour.name).toLowerCase().includes(enteredColour, 0))
 
     return (
-            <ul style={{ opacity: isLoading ? 0.5 : 1 }}>
-                {queriedColours.map(colours =>
-                    <ColourListItem colourName={colours.name} hexColour={colours.hex} />
-                )}
-            </ul>
+        <ul style={{ opacity: isLoading ? 0.5 : 1 }}>
+            {queriedColours.map(colours =>
+                <Link className="list-item-link" to={colours.name} key={uuid()}>
+                    <li>
+                        <ColourListItem colourName={colours.name} hexColour={colours.hex} />
+                    </li>
+                </Link>
+
+            )}
+        </ul>
     )
 }
 
