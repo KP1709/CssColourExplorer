@@ -11,7 +11,7 @@ export default function Loading({loadingPhrase}:LoadingType) {
     return (
         <main id="loading">
             <h2>{loadingPhrase}</h2>
-            <FontAwesomeIcon aria-hidden='true' icon={faSpinner} spinPulse />
+            <FontAwesomeIcon aria-hidden='true' icon={faSpinner} spinPulse data-test="loading-spinner"/>
         </main>
     )
 }

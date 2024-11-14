@@ -3,13 +3,13 @@ import "../styles/colourExplorer.css"
 const ColourList = lazy(() => import("./colourList"))
 import Loading from "./loadingFallback";
 
-export default function colourExplorer() {
+export default function ColourExplorer() {
     const [enteredColour, setEnteredColor] = useState<string>("")
     const deferredEnteredColour = useDeferredValue(enteredColour)
     const isLoading = enteredColour !== deferredEnteredColour
 
     return (
-        <main>
+        <main data-test="colour-explorer-page">
             <label htmlFor="colourName">Colour name:</label>
             <input type="search"
                 id="colourName"
