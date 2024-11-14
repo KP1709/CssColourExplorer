@@ -1,0 +1,27 @@
+.list-item-link {
+    text-decoration: none;
+    width: 100%;
+
+    &:any-link{
+        color: hsl(0, 0%, 0%);
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
+        text-wrap: balance;
+        cursor: pointer;
+
+
+        &:hover {
+            background-color: hsl(0, 100%, 99%);
+        }
+    }
+
+    svg {
+        width: 40px;
+    }
+}
