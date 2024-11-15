@@ -1,7 +1,5 @@
 import { memo } from "react"
-import { v4 as uuid } from 'uuid'
 import { useQuery } from "@tanstack/react-query"
-import { Link } from "react-router-dom"
 import startCase from "lodash.startcase"
 import { getCssColours } from "../apiCalls";
 import "../styles/colourList.css"
@@ -20,17 +18,11 @@ function ColourList({ enteredColour, isLoading }: ColourList) {
     const queriedColours = cssColours.filter(colour => startCase(colour.name).toLowerCase().includes(enteredColour, 0))
 
     return (
-        <>
-            <ul style={{ opacity: isLoading ? 0.5 : 1 }} data-test="colour-list-results">
+            <ul style={{ opacity: isLoading ? 0.5 : 1 }}>
                 {queriedColours.map(colours =>
-                    <Link className="list-item-link" to={colours.name} key={uuid()}>
-                        <li>
-                            <ColourListItem colourName={colours.name} hexColour={colours.hex} />
-                        </li>
-                    </Link>
+                    <ColourListItem colourName={colours.name} hexColour={colours.hex} />
                 )}
             </ul>
-        </>
     )
 }
 
