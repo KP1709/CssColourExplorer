@@ -24,12 +24,11 @@ function ColourList({ enteredColour, isLoading, filterColour, filterTheme }: Col
 
     if (cssColours === undefined) return null;
 
-    // filterTheme === 'all' - lowercase due to inconsistency in casing in API
     const filteredItems = () => {
         return cssColours.filter(color => {
             const matchesSearch = startCase(color.name).toLowerCase().includes(enteredColour.toLowerCase())
             const groupColour = filterColour === 'All' || color.group === filterColour
-            const groupTheme = filterTheme === 'all' || color.theme === filterTheme
+            const groupTheme = filterTheme === 'all' || filterTheme === 'All' || color.theme === filterTheme // Need to look into
             return matchesSearch && groupColour && groupTheme
         })
     }
