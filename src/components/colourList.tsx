@@ -7,8 +7,14 @@ import ColourListItem from "./colourListItem";
 import { Link } from "react-router-dom";
 import { v4 as uuid } from "uuid"
 
-type ColourList = { enteredColour: string, isLoading: boolean }
-function ColourList({ enteredColour, isLoading }: ColourList) {
+type ColourList = {
+    enteredColour: string,
+    isLoading: boolean,
+    filterColour: string,
+    filterTheme: string
+}
+
+function ColourList({ enteredColour, isLoading, filterColour, filterTheme }: ColourList) {
 
     const { data: cssColours } = useQuery({
         queryKey: ['cssColours'],
@@ -17,17 +23,25 @@ function ColourList({ enteredColour, isLoading }: ColourList) {
     })
 
     if (cssColours === undefined) return null;
-    const queriedColours = cssColours.filter(colour => startCase(colour.name).toLowerCase().includes(enteredColour, 0))
+
+    // filterTheme === 'all' - lowercase due to inconsistency in casing in API
+    const filteredItems = () => {
+        return cssColours.filter(color => {
+            const matchesSearch = startCase(color.name).toLowerCase().includes(enteredColour.toLowerCase())
+            const groupColour = filterColour === 'All' || color.group === filterColour
+            const groupTheme = filterTheme === 'all' || color.theme === filterTheme
+            return matchesSearch && groupColour && groupTheme
+        })
+    }
 
     return (
         <ul style={{ opacity: isLoading ? 0.5 : 1 }}>
-            {queriedColours.map(colours =>
-                <Link className="list-item-link" to={colours.name} key={uuid()}>
+            {filteredItems().map(colours =>
+                <Link className="list-item-link" to={colours.name}>
                     <li>
-                        <ColourListItem colourName={colours.name} hexColour={colours.hex} />
+                        <ColourListItem colourName={colours.name} hexColour={colours.hex} key={uuid()} />
                     </li>
                 </Link>
-
             )}
         </ul>
     )
