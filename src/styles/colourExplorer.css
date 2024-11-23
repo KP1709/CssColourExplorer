@@ -4,7 +4,11 @@ main {
     width: 90vw;
     max-width: 900px;
 
-    input[type=search] {
+    label{
+        margin-top: 10px;
+    }
+
+    input[type=search], select {
         width: 100%;
         height: 40px;
         border-radius: 5px;
