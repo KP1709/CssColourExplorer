@@ -10,6 +10,7 @@ Similar to the Colour Scheme Generator project, I wanted to explore React Query 
 
 ## 🛠️ Features
 - Able to search for colours by name
+- Able to filter by colour group and colour theme (light/dark)
 - View more information about the colour by clicking / tapping
     - User taken to a page with the colour name within the URL
     - Displays colour and information about it
