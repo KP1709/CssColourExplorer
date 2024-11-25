@@ -21,6 +21,18 @@ describe('Testing whole site', () => {
     cy.getDataTest('colour-list-results').get('li').should('have.length', '20')  
   })
 
+  it('Able to search + filter content', () => {
+    cy.visit('/')
+    cy.getDataTest('colour-explorer-page').find('input').as("colourSearchInput")
+    cy.get('@colourSearchInput').type('slate')
+    cy.getDataTest('colour-list-results').get('li').should('have.length', '9')  
+    cy.getDataTest('colour-theme-select').select('light')
+    cy.getDataTest('colour-list-results').get('li').should('have.length', '2')  
+    cy.getDataTest('colour-theme-select').select('dark')
+    cy.getDataTest('colour-group-select').select('Gray')
+    cy.getDataTest('colour-list-results').get('li').should('have.length', '4')  
+  })
+
   it('Able to navigate to colour information page', () => {
     cy.visit('/')
     cy.getDataTest('colour-explorer-page').find('input').as("colourSearchInput")

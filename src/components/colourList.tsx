@@ -34,7 +34,7 @@ function ColourList({ enteredColour, isLoading, filterColour, filterTheme }: Col
     }
 
     return (
-        <ul style={{ opacity: isLoading ? 0.5 : 1 }} id="colourList">
+        <ul style={{ opacity: isLoading ? 0.5 : 1 }} id="colourList" data-test="colour-list-results">
             {filteredItems().map(colours =>
                 <Link className="list-item-link" to={colours.name}>
                     <li>
