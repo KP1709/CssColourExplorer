@@ -30,36 +30,42 @@ export default function colourExplorer() {
     }
 
     return (
-        <main>
-            <label htmlFor="colourName">Colour name:</label>
-            <input type="search"
-                id="colourName"
-                name="colourName"
-                value={enteredColour}
-                onChange={(e) => setEnteredColor(e.target.value.toLowerCase())}
-                placeholder="apricot"
-                aria-label="Search through all CSS colours"
-            />
+        <main id="colourExplorer">
+            <div id="colourNameFormItem">
+                <label htmlFor="colourName">Colour name:</label>
+                <input type="search"
+                    id="colourName"
+                    name="colourName"
+                    value={enteredColour}
+                    onChange={(e) => setEnteredColor(e.target.value.toLowerCase())}
+                    placeholder="apricot"
+                    aria-label="Search through all CSS colours"
+                />
+            </div>
 
-            <label htmlFor="colourGroup">Colour group: </label>
-            <select
-                id="colourGroup"
-                name="colourGroup"
-                onChange={(e) => setSelectedFilterGroup(e.target.value)}
-                aria-label="Select a css colour group to filter"
-            >
-                {colourGroupFilterList.map(colour => <option value={colour}>{colour}</option>)}
-            </select>
+            <div id="colourGroupFormItem">
+                <label htmlFor="colourGroup">Colour group: </label>
+                <select
+                    id="colourGroup"
+                    name="colourGroup"
+                    onChange={(e) => setSelectedFilterGroup(e.target.value)}
+                    aria-label="Select a css colour group to filter"
+                >
+                    {colourGroupFilterList.map(colour => <option value={colour}>{colour}</option>)}
+                </select>
+            </div>
 
-            <label htmlFor="colourTheme">Colour theme: </label>
-            <select
-                id="colourTheme"
-                name="colourTheme"
-                onChange={(e) => setSelectedFilterTheme(e.target.value)}
-                aria-label="Select a css colour theme to filter"
-            >
-                {colourThemeFilterList.map(theme => <option value={theme.toLowerCase()}>{theme}</option>)}
-            </select>
+            <div id="colourThemeFormItem">
+                <label htmlFor="colourTheme">Colour theme: </label>
+                <select
+                    id="colourTheme"
+                    name="colourTheme"
+                    onChange={(e) => setSelectedFilterTheme(e.target.value)}
+                    aria-label="Select a css colour theme to filter"
+                >
+                    {colourThemeFilterList.map(theme => <option value={theme.toLowerCase()}>{theme}</option>)}
+                </select>
+            </div>
 
             <Suspense fallback={<Loading loadingPhrase="Loading CSS colours" />}>
                 <ColourList enteredColour={deferredEnteredColour} filterColour={selectedGroup} filterTheme={selectedTheme} isLoading={isLoading} />
