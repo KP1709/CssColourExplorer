@@ -37,7 +37,7 @@ function ColourList({ enteredColour, isLoading, filterColour, filterTheme }: Col
         <>
         {filteredItems().length !== 0 ? <ul style={{ opacity: isLoading ? 0.5 : 1 }} id="colourList">
             { filteredItems().map(colours =>
-                <Link className="list-item-link" to={colours.name} >
+                <Link className="list-item-link" to={colours.name} key={uuid()}>
                     <li>
                         <ColourListItem colourName={colours.name} hexColour={colours.hex}/>
                     </li>

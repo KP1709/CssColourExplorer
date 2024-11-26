@@ -2,6 +2,7 @@ import { lazy, Suspense, useTransition, useDeferredValue, useState } from "react
 import "../styles/colourExplorer.css"
 const ColourList = lazy(() => import("./colourList"))
 import Loading from "./loadingFallback";
+import { v4 as uuid } from "uuid"
 
 export default function colourExplorer() {
     const [enteredColour, setEnteredColor] = useState<string>("")
@@ -51,19 +52,20 @@ export default function colourExplorer() {
                     onChange={(e) => setSelectedFilterGroup(e.target.value)}
                     aria-label="Select a css colour group to filter"
                 >
-                    {colourGroupFilterList.map(colour => <option value={colour}>{colour}</option>)}
+                    {colourGroupFilterList.map(colour => <option value={colour} key={uuid()}>{colour}</option>)}
                 </select>
             </div>
 
             <div id="colourThemeFormItem">
                 <label htmlFor="colourTheme">Colour theme: </label>
                 <select
+                    
                     id="colourTheme"
                     name="colourTheme"
                     onChange={(e) => setSelectedFilterTheme(e.target.value)}
                     aria-label="Select a css colour theme to filter"
                 >
-                    {colourThemeFilterList.map(theme => <option value={theme.toLowerCase()}>{theme}</option>)}
+                    {colourThemeFilterList.map(theme => <option value={theme.toLowerCase()} key={uuid()}>{theme}</option>)}
                 </select>
             </div>
 
