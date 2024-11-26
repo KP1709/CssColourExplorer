@@ -34,15 +34,17 @@ function ColourList({ enteredColour, isLoading, filterColour, filterTheme }: Col
     }
 
     return (
-        <ul style={{ opacity: isLoading ? 0.5 : 1 }} id="colourList">
-            {filteredItems().map(colours =>
-                <Link className="list-item-link" to={colours.name}>
+        <>
+        {filteredItems().length !== 0 ? <ul style={{ opacity: isLoading ? 0.5 : 1 }} id="colourList">
+            { filteredItems().map(colours =>
+                <Link className="list-item-link" to={colours.name} >
                     <li>
-                        <ColourListItem colourName={colours.name} hexColour={colours.hex} key={uuid()} />
+                        <ColourListItem colourName={colours.name} hexColour={colours.hex}/>
                     </li>
                 </Link>
-            )}
-        </ul>
+            ) }
+        </ul> : <h2 id="colourList">No results matching this criteria</h2> }
+        </>
     )
 }
 
