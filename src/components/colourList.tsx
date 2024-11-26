@@ -1,4 +1,4 @@
-import { memo } from "react"
+import React, { memo } from "react"
 import { useQuery } from "@tanstack/react-query"
 import startCase from "lodash.startcase"
 import { getCssColours } from "../apiCalls";
@@ -16,7 +16,7 @@ type ColourList = {
 
 function ColourList({ enteredColour, isLoading, filterColour, filterTheme }: ColourList) {
 
-    const { data: cssColours } = useQuery({
+    const { data: cssColours, isError } = useQuery({
         queryKey: ['cssColours'],
         queryFn: getCssColours,
         refetchOnWindowFocus: false
@@ -33,9 +33,9 @@ function ColourList({ enteredColour, isLoading, filterColour, filterTheme }: Col
         })
     }
 
-    return (
-        <div id="colourList">
-            {filteredItems().length !== 0 ? <ul style={{ opacity: isLoading ? 0.5 : 1 }} >
+    const DisplayResults = (): React.ReactNode => {
+        if (filteredItems().length !== 0 && !isError) {
+            return (<ul style={{ opacity: isLoading ? 0.5 : 1 }} >
                 {filteredItems().map(colours =>
                     <Link className="list-item-link" to={colours.name} key={uuid()}>
                         <li>
@@ -43,7 +43,19 @@ function ColourList({ enteredColour, isLoading, filterColour, filterTheme }: Col
                         </li>
                     </Link>
                 )}
-            </ul> : <h2>No results matching this criteria</h2>}
+            </ul>)
+        }
+        else if (filteredItems.length === 0 && !isError) {
+            return (<h2>No results matching this criteria</h2>)
+        }
+        else if (isError) {
+            return (<h2>Error in fetching colours</h2>)
+        }
+    }
+
+    return (
+        <div id="colourList">
+            <DisplayResults />
         </div>
     )
 }
