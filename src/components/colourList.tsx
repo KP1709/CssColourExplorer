@@ -35,7 +35,7 @@ function ColourList({ enteredColour, isLoading, filterColour, filterTheme }: Col
 
     const DisplayResults = (): React.ReactNode => {
         if (filteredItems().length !== 0 && !isError) {
-            return (<ul style={{ opacity: isLoading ? 0.5 : 1 }} >
+            return (<ul style={{ opacity: isLoading ? 0.5 : 1 }} data-test="colour-list-results" >
                 {filteredItems().map(colours =>
                     <Link className="list-item-link" to={colours.name} key={uuid()}>
                         <li>

@@ -31,7 +31,7 @@ export default function colourExplorer() {
 
     return (
         <main id="colourExplorer">
-            <div id="colourNameFormItem">
+            <div id="colourNameFormItem" data-test="colour-explorer-page">
                 <label htmlFor="colourName">Colour name:</label>
                 <input type="search"
                     id="colourName"
@@ -50,6 +50,7 @@ export default function colourExplorer() {
                     name="colourGroup"
                     onChange={(e) => setSelectedFilterGroup(e.target.value)}
                     aria-label="Select a css colour group to filter"
+                    data-test="colour-group-select"
                 >
                     {colourGroupFilterList.map(colour => <option value={colour}>{colour}</option>)}
                 </select>
@@ -62,6 +63,7 @@ export default function colourExplorer() {
                     name="colourTheme"
                     onChange={(e) => setSelectedFilterTheme(e.target.value)}
                     aria-label="Select a css colour theme to filter"
+                    data-test="colour-theme-select"
                 >
                     {colourThemeFilterList.map(theme => <option value={theme.toLowerCase()}>{theme}</option>)}
                 </select>
