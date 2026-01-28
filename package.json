@@ -16,7 +16,7 @@
     "@tanstack/react-query-devtools": "^5.59.13",
     "axios": "^1.12.0",
     "lodash.startcase": "^4.4.0",
-    "react-router-dom": "^6.27.0",
+    "react-router-dom": "^6.30.3",
     "uuidv4": "^6.2.13"
   },
   "peerDependencies": {
